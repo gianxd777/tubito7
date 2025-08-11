@@ -1,0 +1,419 @@
+/* =========================
+   ESTILOS GENERALES
+   ========================= */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #1038a7, #4121b8);
+    color: #333;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+header {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* MENÚ */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.menu li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* HAMBURGUESA */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* =========================
+   PRODUCTOS GRID
+   ========================= */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+/* TARJETA PRODUCTO */
+.producto {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.producto img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* TÍTULO PRODUCTO */
+.producto h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #222;
+}
+
+/* =========================
+   PRECIOS
+   ========================= */
+.precios {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.fila-precio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    gap: 5px;
+}
+
+.tipo {
+    font-weight: bold;
+    color: #888;
+    min-width: 35px;
+}
+
+.precio-antiguo {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.precio-nuevo {
+    font-weight: bold;
+    color: #ff4b2b;
+}
+
+/* =========================
+   BOTONES
+   ========================= */
+.botones-compra {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.botones-compra button {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.botones-compra button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+/* Tablet */
+@media (max-width: 1024px) {
+    .productos {
+        grid-template-columns: repeat(4, minmax(140px, 1fr));
+    }
+}
+
+/* Móvil */
+@media (max-width: 600px) {
+    .productos {
+        grid-template-columns: repeat(3, minmax(120px, 1fr));
+    }
+
+    .producto h3 {
+        font-size: 14px;
+    }
+
+    .fila-precio {
+        font-size: 12px;
+    }
+
+    .botones-compra button {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px 0;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+
+
+
+
+
+/* =========================
+   SECCIÓN PRODUCTOS
+   ========================= */
+/* GRID PRODUCTOS */
+/* GRID PRODUCTOS - PC por defecto */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(150px, 1fr)); /* ancho mínimo para no distorsionar */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Fila de precio con flex ajustable */
+.fila-precio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* evita que se desborde */
+    font-size: 14px;
+    gap: 5px;
+}
+
+/* Ajustes en tablet */
+@media (max-width: 1024px) {
+    .productos {
+        grid-template-columns: repeat(4, minmax(140px, 1fr));
+    }
+}
+
+/* Ajustes en móvil */
+@media (max-width: 600px) {
+    .productos {
+        grid-template-columns: repeat(3, minmax(120px, 1fr));
+    }
+
+    .producto h3 {
+        font-size: 14px; /* texto más compacto */
+    }
+
+    .fila-precio {
+        font-size: 12px; /* precios más pequeños */
+    }
+
+    .botones-compra button {
+        font-size: 12px;
+        padding: 6px;
+    }
+}
+
+
+
+
+/* BARRA DE BÚSQUEDA */
+/* BARRA DE BÚSQUEDA */
+/* BARRA DE BÚSQUEDA */
+.busqueda-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 20px auto;
+    max-width: 400px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+#buscador {
+    flex: 1;
+    padding: 10px 12px;
+    border: 2px solid #00aaff;
+    border-radius: 5px 0 0 5px; /* esquinas unidas con la lupa */
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    height: 40px; /* misma altura que el botón */
+    box-sizing: border-box;
+}
+
+#buscador:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 8px rgba(0,170,255,0.5);
+}
+
+#btn-buscar {
+    background: #00aaff;
+    color: white;
+    border: 2px solid #00aaff;
+    border-left: none;
+    padding: 0 14px;
+    border-radius: 0 5px 5px 0; /* esquinas redondeadas derechas */
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px; /* igual que el input */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+#btn-buscar:hover {
+    background: #0077cc;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .busqueda-container {
+        max-width: 100%;
+    }
+    #buscador {
+        font-size: 14px;
+        height: 38px;
+    }
+    #btn-buscar {
+        font-size: 16px;
+        height: 38px;
+    }
+}
+
+
+
+/* Lista de resultados */
+/* Lista de resultados */
+#resultados-busqueda {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: absolute;
+    z-index: 999;
+    max-width: 400px;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 0 0 6px 6px;
+    overflow-y: auto;
+    max-height: 200px; /* evita que se coma la pantalla */
+}
+
+#resultados-busqueda li {
+    padding: 8px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+#resultados-busqueda li:hover {
+    background: #f0f0f0;
+}
+
+/* Ajustes en tablet */
+@media (max-width: 1024px) {
+    #resultados-busqueda {
+        max-width: 300px;
+        font-size: 13px;
+        max-height: 180px;
+    }
+}
+
+/* Ajustes en móvil */
+@media (max-width: 600px) {
+    #resultados-busqueda {
+        max-width: 250px;
+        font-size: 12px;
+        max-height: 150px;
+    }
+    #resultados-busqueda li {
+        padding: 6px 8px;
+    }
+}
+
+
+
+
+.busqueda-container {
+    position: relative;
+}
+
+#resultados-busqueda {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+
+
