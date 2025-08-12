@@ -605,6 +605,41 @@ main {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .productos {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Móvil por defecto: 3 productos */
@@ -655,4 +690,89 @@ main {
     color: gray;
     font-size: 0.9em;
     margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Posicionamiento del dropdown */
+.menu li {
+    position: relative;
+}
+
+/* Submenú oculto por defecto */
+.submenu {
+    display: none;
+    position: absolute;
+    background: #111;
+    padding: 10px 0;
+    list-style: none;
+    min-width: 180px;
+    z-index: 999;
+    border-radius: 5px;
+}
+
+/* Estilo de enlaces del submenú */
+.submenu li a {
+    display: block;
+    padding: 8px 15px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.submenu li a:hover {
+    background: red;
+}
+
+/* Mostrar submenú al pasar el ratón */
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/* Asegurar que en móvil se vea bien */
+@media (max-width: 768px) {
+    .submenu {
+        position: static;
+        min-width: 100%;
+    }
 }

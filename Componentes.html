@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programas - The Systems House</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const buscador = document.getElementById("buscador");
+        const resultados = document.getElementById("resultados-busqueda");
+        const productos = document.querySelectorAll(".producto");
+
+        function filtrarProductos(texto) {
+            let resultadosHTML = "";
+            const textoMin = texto.toLowerCase();
+
+            productos.forEach(prod => {
+                const nombre = prod.querySelector("h3").innerText.toLowerCase();
+                if (nombre.includes(textoMin) && texto.trim() !== "") {
+                    resultadosHTML += `<li data-nombre="${nombre}">${prod.querySelector("h3").innerText}</li>`;
+                }
+            });
+
+            resultados.innerHTML = resultadosHTML;
+            resultados.style.display = resultadosHTML ? "block" : "none";
+        }
+
+        buscador.addEventListener("input", function () {
+            filtrarProductos(this.value);
+        });
+
+        resultados.addEventListener("click", function (e) {
+            if (e.target.tagName === "LI") {
+                const nombre = e.target.getAttribute("data-nombre");
+                const productoEncontrado = Array.from(productos).find(p =>
+                    p.querySelector("h3").innerText.toLowerCase() === nombre
+                );
+                if (productoEncontrado) {
+                    productoEncontrado.scrollIntoView({ behavior: "smooth", block: "center" });
+                    productoEncontrado.style.border = "2px solid #00aaff";
+                    setTimeout(() => {
+                        productoEncontrado.style.border = "";
+                    }, 2000);
+                }
+                resultados.style.display = "none";
+            }
+        });
+
+        document.addEventListener("click", function (e) {
+            if (!resultados.contains(e.target) && e.target !== buscador) {
+                resultados.style.display = "none";
+            }
+        });
+    });
+</script>
+
+<body>
+    <header>
+        <div class="logo">Gian RP7</div>
+        <nav>
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="programas.html" class="active">Programas</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+            </ul>
+        </nav>
+        <!-- Botón menú hamburguesa a la derecha -->
+        <div class="menu-toggle" id="menu-toggle">
+            ☰
+        </div>
+    </header>
+
+    <!-- Barra de búsqueda -->
+    <!-- Barra de búsqueda -->
+    <div class="busqueda-container">
+        <input type="text" id="buscador" placeholder="Buscar producto...">
+        <button id="btn-buscar">
+            🔍
+        </button>
+        <ul id="resultados-busqueda">
+            <!-- Aquí JS insertará las sugerencias -->
+        </ul>
+    </div>
+
+
+
+
+
+
+    <main>
+        <section class="productos">
+            <!-- Producto 1 -->
+            <div class="producto">
+                <img src="img_productos/TE.png" alt="Producto 1">
+                <h3>Protector de teclado 14 pulgadas</h3>
+                <div class="precios">
+                    <div class="fila-precio">
+                        <span class="tipo"></span>
+                        <span class="precio-antiguo">S/15.00</span>
+                        <span class="precio-nuevo">S/8.00</span>
+                    </div>
+                </div>
+                <div class="botones-compra">
+                    <button>COMPRAR</button>
+                    
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="producto">
+                <img src="img_productos/TE.png" alt="Producto 2">
+                <h3>Protector de teclado 15.6 pulgadas </h3>
+                <div class="precios">
+                    <div class="fila-precio">
+                        <span class="tipo">C.A.</span>
+                        <span class="precio-antiguo">S/50.00</span>
+                        <span class="precio-nuevo">S/38.00</span>
+                    </div>
+                    
+                </div>
+                <div class="botones-compra">
+                    <button>COMPRAR</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img src="img_productos/cooler.png" alt="Producto 2">
+                <h3>Cooler Para Laptop Teros TE-7020N 2 Fans </h3>
+                <div class="precios">
+                    <div class="fila-precio">
+                        <span class="tipo"></span>
+                        <span class="precio-antiguo">S/50.00</span>
+                        <span class="precio-nuevo">S/35.00</span>
+                    </div>
+                    
+                </div>
+                <div class="botones-compra">
+                    <button>COMPRAR</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img src="img_productos/12.png" alt="Producto 2">
+                <h3>Pasta Refrigerante Deepcool C | Aplicador Z3</h3>
+                <div class="precios">
+                    <div class="fila-precio">
+                        <span class="tipo"></span>
+                        <span class="precio-antiguo">S/30.00</span>
+                        <span class="precio-nuevo">S/20.00</span>
+                    </div>
+                    
+                </div>
+                <div class="botones-compra">
+                    <button>COMPRAR</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img src="img_productos/qq.png" alt="Producto 2">
+                <h3>Pasta Refrigerante Deepcool C | Aplicador Z5</h3>
+                <div class="precios">
+                    <div class="fila-precio">
+                        <span class="tipo"></span>
+                        <span class="precio-antiguo">S/55.00</span>
+                        <span class="precio-nuevo">S/30.00</span>
+                    </div>
+                    
+                </div>
+                <div class="botones-compra">
+                    <button>COMPRAR</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img src="img_productos/ee.png" alt="Producto 2">
+                <h3>Pasta Refrigerante Deepcool C | Aplicador DM9 1.5G</h3>
+                <div class="precios">
+                    <div class="fila-precio">
+                        <span class="tipo"></span>
+                        <span class="precio-antiguo">S/59.00</span>
+                        <span class="precio-nuevo">S/37.00</span>
+                    </div>
+                    
+                </div>
+                <div class="botones-compra">
+                    <button>COMPRAR</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img src="img_productos/rrr.png" alt="Producto 2">
+                <h3>Pasta Refrigerante Deepcool C | Aplicador DM9 4G</h3>
+                <div class="precios">
+                    <div class="fila-precio">
+                        <span class="tipo"></span>
+                        <span class="precio-antiguo">S/90.00</span>
+                        <span class="precio-nuevo">S/70.00</span>
+                    </div>
+                    
+                </div>
+                <div class="botones-compra">
+                    <button>COMPRAR</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img src="" alt="Producto 2">
+                <h3></h3>
+                <div class="precios">
+                    <div class="fila-precio">
+                        <span class="tipo"></span>
+                        <span class="precio-antiguo">S/50.00</span>
+                        <span class="precio-nuevo">S/35.00</span>
+                    </div>
+                    
+                </div>
+                <div class="botones-compra">
+                    <button>COMPRAR</button>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            
+            <!-- Aquí seguiría del producto 11 al producto 20 con el mismo formato -->
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 - The Systems House</p>
+    </footer>
+        <script src="script.js"></script>
+
+
+</body>
+
+</html>
